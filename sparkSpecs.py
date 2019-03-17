@@ -1,6 +1,6 @@
-def sparkClusterTuning(nodes, cores, ram, exec_slots = 5):
+def sparkClusterYarnTuning(nodes, cores, ram, exec_slots = 5):
     """
-    returns optimized spark submit application arguments customized to cluster specs
+    returns optimized spark submit application arguments customized to spark cluster on YARN specs
     params ...
     : nodes => # of data nodes in cluster
     : cores => # of cores / each node
