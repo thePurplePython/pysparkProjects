@@ -16,6 +16,6 @@ def sparkClusterYarnTuning(nodes, cores, ram, exec_slots = 5):
     exec_num = int(cluster_total_cores / exec_slots) - 1
     exec_mem = int(((ram - 1) / ((exec_num + 1) / nodes)) * (1 - 0.07))
     spark_submit = print("--num-executors " + str(exec_num) \
-                         + " --num-executor-cores " + str(exec_slots) \
+                         + " --executor-cores " + str(exec_slots) \
                          + " --executor-memory " + str(exec_mem))
     return spark_submit
