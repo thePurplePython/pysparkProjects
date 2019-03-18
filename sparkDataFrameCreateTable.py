@@ -1,8 +1,8 @@
 def sparkDataFrameCreateTable(df, T = ''):
 	"""
 	this function inputs a dataframe and returns the sql create parquet table statment executed by spark sql w/ all cols and data types mapped from source dataframe
-  this function serves as an alternative to the df.write.format("parquet").saveAsTable(...) bug not working with partitioned hive tables as source df read
-  https://www.cloudera.com/documentation/enterprise/release-notes/topics/cdh_rn_spark_ki.html#ki_sparksql_dataframe_saveastable
+  	this function serves as an alternative to the df.write.format("parquet").saveAsTable(...) bug not working with partitioned hive tables as source df read
+  	https://www.cloudera.com/documentation/enterprise/release-notes/topics/cdh_rn_spark_ki.html#ki_sparksql_dataframe_saveastable
 	: df => source dataframe object
 	: T => target database.table string name object
 	example ...
@@ -28,7 +28,7 @@ def sparkDataFrameCreateTable(df, T = ''):
         ddl.append(total)
         count = count + 1
     ddl.append(") STORED AS PARQUET")
-    schemaMap = ''.join(ddl)
-    print(schemaMap)
-    execSQL = spark.sql(schemaMap)
-    return execSQL
+    schema_map = ''.join(ddl)
+    print(schema_map)
+    exec_sql = spark.sql(schema_map)
+    return exec_sql
