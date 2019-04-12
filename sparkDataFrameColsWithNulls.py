@@ -11,8 +11,6 @@ def sparkDataFrameColsWithNulls(df):
     import numpy as np
     import pyspark.sql.functions as F
     import pyspark.sql.types as T
-    from pyspark.sql import Row
-
     schema = T.StructType([\
                           T.StructField("id", T.IntegerType(), True),
                           T.StructField("class", T.StringType(), True),
@@ -21,7 +19,6 @@ def sparkDataFrameColsWithNulls(df):
                           T.StructField("destiny", T.FloatType(), True),
                           T.StructField("corrupted_col", T.StringType(), True)\
                           ])
-
     rows = sc\
     .parallelize(\
                  [(0, "Titan", "Sunbreaker", "Hammer of Sol", 2.0, "NULL"),
@@ -37,9 +34,7 @@ def sparkDataFrameColsWithNulls(df):
                   (10, "Warlock", "Stormcaller", "Stormtrance", 2.0, np.nan),
                   (11, "Warlock", "Sunsinger", "Radiance", 2.0, np.nan)]\
                 )
-
     myDF = spark.createDataFrame(rows, schema)
-
     sparkDataFrameColsWithNulls(myDF).show()
     '''
     """
