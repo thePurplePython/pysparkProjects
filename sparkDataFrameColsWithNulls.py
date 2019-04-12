@@ -7,7 +7,7 @@ def sparkDataFrameColsWithNulls(df):
         -  null strings
         -  NULL integers
     example ...
-	'''
+    '''
     import numpy as np
     import pyspark.sql.functions as F
     import pyspark.sql.types as T
@@ -41,7 +41,7 @@ def sparkDataFrameColsWithNulls(df):
     myDF = spark.createDataFrame(rows, schema)
 
     sparkDataFrameColsWithNulls(myDF).show()
-	'''
+    '''
     """
     df = df.select([F.count(F.when(F.isnan(i) | \
                                    F.col(i).contains('null') | \
